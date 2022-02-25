@@ -1,7 +1,10 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import teacherInfoReducer from "reducers/teacherInfo";
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    teacherInfo: teacherInfoReducer,
+  },
 });
 
 export type AppDispatch = typeof store.dispatch;
