@@ -1,25 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-import { useAppDispatch, useAppSelector } from "hooks/redux";
-import { getTeacherInfoAsync, teacherInfo } from "reducers";
-
+import { useGetTeachersByClassQuery } from "api";
 const TeacherInfo = () => {
-  const currentTeacher = useAppSelector(teacherInfo);
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    if (!currentTeacher?.data) {
-      getTeacherData(1);
-    }
-  }, []);
-
-  const getTeacherData = (classId: number) => {
-    dispatch(getTeacherInfoAsync({ classId }));
-  };
+  const { data, error, isLoading } = useGetTeachersByClassQuery(1);
 
   return (
     <div className="teacher-info">
-      Инфа об учителе <b>{currentTeacher.data?.[0]?.name}</b>
+      Инфа об учителе <b>{data?.[0]?.name}</b>
     </div>
   );
 };

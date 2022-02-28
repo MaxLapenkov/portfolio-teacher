@@ -1,5 +1,7 @@
 import { IQueryParams } from "api/types/common";
 
+export const BASE_URL = "https://lapenkov-portfolio-server.herokuapp.com";
+
 export const apiPaths: Record<string, string> = {
   ATTACHMENT: "/attachment",
   BASE_URL: "/app",
